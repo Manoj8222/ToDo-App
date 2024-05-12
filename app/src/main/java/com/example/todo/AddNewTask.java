@@ -190,7 +190,7 @@ public class AddNewTask extends BottomSheetDialogFragment {
                         int endMinute = timePicker.getMinute();
                         if(StartDateRange1.equals(EndDateRange)){
                             if (!isEndTimeValid(startHour, startMinute, endHour, endMinute)) {
-//                                Toast.makeText(getContext(), "End time must be greater than start time", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getContext(), "End time must be greater than start time", Toast.LENGTH_LONG).show();
                             } else {
                                 String AM_PM = "";
                                 if (timePicker.getHour() > 12) {
@@ -269,7 +269,9 @@ public class AddNewTask extends BottomSheetDialogFragment {
             String endtime = bundle.getString("endtime");
             String enddate = bundle.getString("enddate");
             String priority = bundle.getString("priority");
-
+            Button b = view.findViewById(R.id.button);
+            b.setEnabled(true);
+            submitBtn.setBackgroundColor(getResources().getColor(com.google.android.material.R.color.design_default_color_primary));
             taskName.setText(task);
             taskDescription.setText(description);
             startT.setText(starttime);
